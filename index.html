@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigado pela sua compra — Seja Forte e Corajoso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1f3d;
+    --navy-deep: #0a1730;
+    --navy-card: #142a4d;
+    --gold: #c9a84c;
+    --gold-light: #e0c878;
+    --white: #f5f2ec;
+    --white-pure: #ffffff;
+    --grey: #8a94a8;
+    --border: #1e3355;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── LOGO (leque / livro aberto minimalista) ─── */
+  .logo-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 32px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .logo-symbol svg { display: block; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,23,48,0.97) 0%, transparent 100%);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+  }
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .logo-text span {
+    display: block;
+    color: var(--white);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 48px 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .bg-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201,168,76,0.10) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    opacity: 0;
+  }
+
+  .thank-icon {
+    font-size: 56px;
+    line-height: 1;
+    margin-bottom: 28px;
+    display: inline-block;
+  }
+
+  .tag {
+    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    color: var(--white-pure);
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  h1 .accent {
+    color: var(--gold);
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--grey);
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+  .subtitle strong { color: var(--white); font-weight: 500; }
+
+  /* BOTÃO DOWNLOAD */
+  .btn-download {
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 20px 56px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.3);
+    position: relative;
+  }
+  .btn-download:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(201,168,76,0.45);
+  }
+  .btn-download:active { transform: translateY(0); }
+  .btn-download:disabled {
+    background: #6b7c93;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .feedback {
+    margin-top: 24px;
+    font-size: 15px;
+    min-height: 24px;
+    color: var(--grey);
+    font-weight: 400;
+  }
+  .feedback.success { color: #4ade80; }
+  .feedback.error { color: #f87171; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deep);
+    border-top: 1px solid var(--border);
+    padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-logo {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--gold); letter-spacing: 2px; font-weight: 700;
+  }
+  .footer-copy { font-size: 12px; color: var(--grey); }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 24px; }
+    main { padding: 120px 24px 60px; }
+    .btn-download { padding: 18px 36px; font-size: 13px; width: 100%; justify-content: center; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-symbol">
+      <svg width="42" height="34" viewBox="0 0 42 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="21" cy="22" r="3.5" fill="#c9a84c"/>
+        <line x1="21" y1="22" x2="21" y2="4" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="12" y2="6" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="30" y2="6" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="5" y2="11" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="37" y2="11" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="2" y2="18" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="40" y2="18" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="2" y1="27" x2="40" y2="27" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="logo-text">Seja Forte<span>& Corajoso</span></span>
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="content">
+    <div class="thank-icon">📖</div>
+    <div class="tag">✦ Obrigado pela sua compra</div>
+    <h1>
+      Que bom ter<br>
+      <span class="accent">você conosco.</span>
+    </h1>
+    <p class="subtitle">
+      Agradecemos de coração por adquirir <strong>"Seja Forte e Corajoso"</strong>.<br>
+      Esperamos que esta leitura abençoe, fortaleça e transforme a sua vida.<br>
+      Clique no botão abaixo para baixar o seu ebook em PDF.
+    </p>
+
+    <button id="btnDownload" class="btn-download">
+      <span>⬇</span> Download do Ebook
+    </button>
+
+    <div id="feedback" class="feedback"></div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="logo-symbol" style="width:36px;height:28px;">
+      <svg width="36" height="28" viewBox="0 0 42 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="21" cy="22" r="3.5" fill="#c9a84c"/>
+        <line x1="21" y1="22" x2="21" y2="4" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="12" y2="6" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="30" y2="6" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="5" y2="11" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="37" y2="11" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="2" y2="18" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="21" y1="22" x2="40" y2="18" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round"/>
+        <line x1="2" y1="27" x2="40" y2="27" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </span>
+    SEJA FORTE & CORAJOSO
+  </div>
+  <div class="footer-copy">© 2026 Jaqueline Lima · Todos os direitos reservados</div>
+</footer>
+
+<script>
+// ─── ENTRANCE ANIMATION ───
+window.addEventListener('load', () => {
+  anime({
+    targets: '.content',
+    opacity: [0, 1],
+    translateY: [30, 0],
+    duration: 1000,
+    easing: 'easeOutExpo',
+    delay: 200
+  });
+});
+
+// ─── DOWNLOAD ───
+document.getElementById('btnDownload').addEventListener('click', async function () {
+  const botao = this;
+  const feedback = document.getElementById('feedback');
+
+  const urlDoPdf = 'https://raw.githubusercontent.com/jaquelinelimadasilva61732-cmd/EbookProntoparaler/main/Seja-Forte-e-Corajoso_DIGITAL_CIP_ebook_branco.pdf';
+  const nomeDoArquivo = 'Seja-Forte-e-Corajoso_Jaqueline-Lima.pdf';
+
+  botao.disabled = true;
+  botao.innerHTML = '<span>⏳</span> Baixando...';
+  feedback.textContent = '';
+  feedback.className = 'feedback';
+
+  try {
+    const resposta = await fetch(urlDoPdf);
+    if (!resposta.ok) throw new Error('Falha ao acessar o arquivo.');
+
+    const blob = await resposta.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = nomeDoArquivo;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(blobUrl);
+
+    feedback.textContent = '✅ Download iniciado com sucesso!';
+    feedback.className = 'feedback success';
+
+    setTimeout(() => {
+      botao.disabled = false;
+      botao.innerHTML = '<span>⬇</span> Download do Ebook';
+    }, 3000);
+
+  } catch (erro) {
+    console.error('Erro no download:', erro);
+    feedback.textContent = '❌ Não foi possível baixar o arquivo. Tente novamente.';
+    feedback.className = 'feedback error';
+
+    botao.disabled = false;
+    botao.innerHTML = '<span>⬇</span> Download do Ebook';
+  }
+});
+</script>
+</body>
+</html>

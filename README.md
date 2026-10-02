@@ -1,12 +1,20 @@
-# DopaReset
-O DopaReset é um protocolo neurocomportamental projetado para quem se sente travado na rotina, Procrastina tarefas importantes e perdeu o entusiasmo e a energia diária.
+# Ebook 
+Material Completo
 
-Ao contrário de dietas extremas de "jejum de dopamina" que duram poucos dias, o DopaReset ensina você a reconfigurar seus receptores mentais sem se isolar do mundo moderno.
+Sumário
+SEJA FORTE E CORAJOSO
 
-O que você recebe no DopaReset:
-
-Plano de Reconfiguração de 21 Dias: Passo a passo diário para eliminar vícios digitais e comportamentais.
-
-O Guia da Dopamina Conquistada: Como trocar recompensa fácil (redes sociais, açúcar, procrastinação) por motivação real para construir objetivos.
-
-Rituais Matinais de Baixo Estímulo: Como dominar as primeiras 2 horas do dia para ter clareza mental e foco inabalável até a noite.
+Introdução	1
+Capítulo I - O Começo da Minha História	4
+Capítulo II - Os Dias Felizes da Minha Infância	12
+Capítulo III - As Primeiras Feridas da Alma	23
+Capítulo IV - No Vale da Dor e da Depressão	32
+Capítulo V - Quando Deus Começou a Me Restaurar	46
+Capítulo VI - Descobrindo os Dons do Espírito Santo	55
+Capítulo VII - Período de Grandes Desafios	60
+Capítulo VIII - Novos Caminhos na Juventude	68
+Capítulo IX - Entre Tentações e Batalhas Interiores	76
+Capítulo X - O Chamado que Transformou Minha Vida	91
+Capítulo XI - Uma Nova História em Cristo	99
+Capítulo XII - Uma Mensagem aos Jovens	115
+Conclusão	121
